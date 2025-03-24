@@ -1,5 +1,6 @@
-package net.watcher.beastslayer;
+package net.watcher.netherbiology;
 
+import net.watcher.netherbiology.entity.ModEntities;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -20,21 +21,23 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(BeastSlayer.MOD_ID)
-public class BeastSlayer {
-    public static final String MOD_ID = "beastslayer";
+@Mod(NetherBiology.MOD_ID)
+public class NetherBiology {
+    public static final String MOD_ID = "netherbiology";
     private static final Logger LOGGER = LogUtils.getLogger();
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-    public BeastSlayer(IEventBus modEventBus, ModContainer modContainer){
+    public NetherBiology(IEventBus modEventBus, ModContainer modContainer){
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
         // Register ourselves for server and other game events we are interested in.
-        // Note that this is necessary if and only if we want *this* class (BeastSlayer) to respond directly to events.
+        // Note that this is necessary if and only if we want *this* class (NetherBiology) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
+
+        ModEntities.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
