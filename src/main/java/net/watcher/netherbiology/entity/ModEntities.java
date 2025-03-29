@@ -14,7 +14,7 @@ public class ModEntities {
     DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, NetherBiology.MOD_ID);
 
 public static final Supplier<EntityType<EmberEntity>> Ember =
-        ENTITY_TYPES.register("ember", () -> EntityType.Builder.of(EmberEntity::new, MobCategory.MONSTER)
+        ENTITY_TYPES.register("ember", () -> EntityType.Builder.of(EmberEntity::new, MobCategory.CREATURE)
                 .sized(1.0f, 1.5f).build("ember"));
 
     public static void register(IEventBus eventBus){
