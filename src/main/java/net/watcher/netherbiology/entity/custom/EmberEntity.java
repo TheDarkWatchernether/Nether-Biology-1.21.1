@@ -46,7 +46,7 @@ public class EmberEntity extends Monster implements NeutralMob {
     @Nullable
     private UUID persistentAngerTarget;
     private Integer time;
-    private UUID target;
+    private UUID setter;
 
     public EmberEntity(EntityType<? extends EmberEntity> entityType, Level level) {
         super(entityType, level);
@@ -166,7 +166,7 @@ public class EmberEntity extends Monster implements NeutralMob {
 
     }
 
-    public void setRemainingPersistentAngerTime(UniformInt i) {
+    public void setRemainingPersistentAngerTime() {
         this.entityData.set(DATA_REMAINING_ANGER_TIME, time);
 
     }
@@ -177,11 +177,11 @@ public class EmberEntity extends Monster implements NeutralMob {
     }
 
     public void setPersistentAngerTarget(@Nullable UUID uuid) {
-        this.persistentAngerTarget = target;
+        this.persistentAngerTarget = setter;
     }
 
     public void startPersistentAngerTimer() {
-        this.setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME);
+        this.setRemainingPersistentAngerTime();
     }
     static {
 

@@ -23,7 +23,7 @@ public class EmberRenderer extends MobRenderer<EmberEntity, EmberModel<EmberEnti
     }
 
     @Override
-    public void render(@NotNull EmberEntity entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
+    public void render(@NotNull EmberEntity entity, float entityYaw, float partialTicks, PoseStack poseStack, @NotNull MultiBufferSource buffer, int packedLight) {
         poseStack.scale(1f, 1f, 1f);
         super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
     }
